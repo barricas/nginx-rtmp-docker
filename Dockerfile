@@ -85,6 +85,9 @@ RUN cd /build/nginx && \
 # Final image stage
 FROM ${ALPINE_VERSION}
 
+# Add pcre needed for runtime
+RUN apk --no-cache add pcre
+
 # Set up group and user
 RUN addgroup -S nginx && \
     adduser -s /sbin/nologin -G nginx -S -D -H nginx
