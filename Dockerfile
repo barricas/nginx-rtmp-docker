@@ -51,7 +51,6 @@ RUN cd /build/nginx && \
     --without-http_mirror_module \
     --without-http_proxy_module \
     --without-http_referer_module \
-    --without-http_rewrite_module \
     --without-http_scgi_module \
     --without-http_split_clients_module \
     --without-http_ssi_module \
@@ -80,6 +79,7 @@ RUN cd /build/nginx && \
     --without-stream_upstream_random_module \
     --without-stream_upstream_zone_module \
     --with-ipv6 \
+    --with-http_rewrite_module \
     --with-http_secure_link_module \
     --add-module=/build/nginx-rtmp-module && \
     make -j $(getconf _NPROCESSORS_ONLN)
