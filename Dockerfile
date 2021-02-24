@@ -10,7 +10,7 @@ ARG NGINX_RTMP_MODULE_VERSION=6f5487ada9848a66cc7a3ed375e404fc95cc5302
 
 # Install buildtime dependencies
 # Note: We build against LibreSSL instead of OpenSSL, because LibreSSL is already included in Alpine
-RUN apk --no-cache add build-base libressl-dev
+RUN apk --no-cache add build-base libressl-dev pcre-dev
 
 # Download sources
 # Note: We download our own fork of nginx-rtmp-module which contains some additional enhancements over the original version by arut
@@ -65,7 +65,6 @@ RUN cd /build/nginx && \
     --without-mail_imap_module \
     --without-mail_pop3_module \
     --without-mail_smtp_module \
-    --without-pcre \
     --without-poll_module \
     --without-select_module \
     --without-stream_access_module \
@@ -79,7 +78,6 @@ RUN cd /build/nginx && \
     --without-stream_upstream_random_module \
     --without-stream_upstream_zone_module \
     --with-ipv6 \
-    --with-http_rewrite_module \
     --with-http_secure_link_module \
     --add-module=/build/nginx-rtmp-module && \
     make -j $(getconf _NPROCESSORS_ONLN)
