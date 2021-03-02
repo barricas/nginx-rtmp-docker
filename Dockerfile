@@ -79,6 +79,7 @@ RUN cd /build/nginx && \
     --without-stream_upstream_zone_module \
     --with-ipv6 \
     --with-http_secure_link_module \
+    --with-http_realip_module \
     --add-module=/build/nginx-rtmp-module && \
     make -j $(getconf _NPROCESSORS_ONLN)
 
