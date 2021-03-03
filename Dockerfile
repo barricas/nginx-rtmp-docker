@@ -45,7 +45,6 @@ RUN cd /build/nginx && \
     --without-http_grpc_module \
     --without-http_gzip_module \
     --without-http_limit_conn_module \
-    --without-http_map_module \
     --without-http_memcached_module \
     --without-http_mirror_module \
     --without-http_proxy_module \
